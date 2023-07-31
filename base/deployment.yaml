@@ -25,10 +25,10 @@ spec:
           protocol: TCP
         resources:
           limits:
-            cpu: 1
-            memory: 1Gi
+            cpu: 100m
+            memory: 256Mi
           requests:
-            cpu: 500m
-            memory: 512Mi
+            cpu: 100m
+            memory: 256Mi
         securityContext:
           privileged: false
