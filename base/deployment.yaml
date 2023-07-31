@@ -24,11 +24,11 @@ spec:
         - containerPort: 8000
           protocol: TCP
         resources:
-          requests:
-            cpu: '1'
-            memory: 256Mi
           limits:
+            cpu: '1'
+            memory: 500Mi
+          requests:
             cpu: 10m
-            memory: 256Mi
+            memory: 254Mi
         securityContext:
           privileged: false
