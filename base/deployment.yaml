@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-world
+  namespace: dashboard
+  labels:
+    role: hello-world
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hello-world
+  template:
+    metadata:
+      labels:
+        app: hello-world
+    spec:
+      serviceAccountName: hello-world
+      containers:
+      - name: hello-world
+        imagePullPolicy: IfNotPresent
+        image: datawire/hello-world
+        ports:
+        - containerPort: 8000
+          protocol: TCP
+        resources:
+          requests:
+            cpu: 100m
+            memory: 256Mi
+          limits:
+            cpu: 100m
+            memory: 256Mi
+        securityContext:
+          privileged: false
